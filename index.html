@@ -7,10 +7,33 @@
 <script type="text/javascript" src="js/jquery-ui-1.10.2.min.js"></script>
 <script type="text/javascript" src="js/goaamb/G.js"></script>
 <script type="text/javascript" src="js/personal.js"></script>
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.2.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css"
+	href="css/jquery-ui-1.10.2.min.css" />
 </head>
 <body>
-
+	<section id="editarPersonal">
+		<form onsubmit="return procesarPersonal.call(this);">
+			<input name="id" type="hidden" /> <label>Documento: <input
+				name="documento" type="text" /></label> <label>Paterno: <input
+				name="paterno" type="text" />
+			</label> <label>Materno: <input name="materno" type="text" /></label> <label>Nombre:
+				<input name="nombre" type="text" />
+			</label>
+			<div>
+				<input type="submit" value="Guardar" name="guardar" /> <input
+					type="submit" value="Modificar" name="modificar" />
+			</div>
+		</form>
+	</section>
+	<section id="tickearPersonal">
+		<form onsubmit="return tickearPersonal.call(this);">
+			<div id="hora"></div>
+			<label><input name="documento" /></label>
+			<div>
+				<input type="submit" value="Tickear" />
+			</div>
+		</form>
+	</section>
 </body>
 </html>
