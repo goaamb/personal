@@ -9,6 +9,13 @@ section form label {
 	display: block;
 }
 
-#editarPersonal,#editarPersonal input[name="modificar"] {
+#editarPersonal,#editarPersonal input[name="modificar"],#admPersonal input[name="tickear"],#errorFormPersonal
+	{
 	display: none;
+}
+
+#admPersonal {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
 }
