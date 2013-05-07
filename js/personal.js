@@ -70,6 +70,19 @@ function tickear() {
 	$("#admPersonal input[name='administrar']").show();
 }
 
+function tickearB() {
+	var v = $(this).val();
+	var f = this.form;
+	if (f && v && v.length == 1) {
+		if (v !== "C") {
+			var vv = $(f.documento).val();
+			$(f.documento).val(vv + v);
+		} else {
+			$(f.documento).val("");
+		}
+	}
+}
+
 function tickearPersonal() {
 	var f = this;
 	var d = $(this.documento).val();

@@ -33,10 +33,22 @@
 		<form onsubmit="return tickearPersonal.call(this);" method="post">
 			<div id="errorFormTickear"></div>
 			<div id="hora"></div>
-			<label><input name="documento" type="number"
-				onkeypress="return G.valid.int.call(this,event)" /></label>
-			<div>
-				<input type="submit" value="Tickear" />
+			<label><input name="documento" type="text"
+				readonly="readonly" /></label>
+
+			<div id="tecladoTickear">
+				<input type="button" value="1" onclick="tickearB.call(this)" /> <input
+					type="button" value="2" onclick="tickearB.call(this)" /> <input
+					type="button" value="3" onclick="tickearB.call(this)" /> <input
+					type="button" value="4" onclick="tickearB.call(this)" /> <input
+					type="button" value="5" onclick="tickearB.call(this)" /> <input
+					type="button" value="6" onclick="tickearB.call(this)" /> <input
+					type="button" value="7" onclick="tickearB.call(this)" /> <input
+					type="button" value="8" onclick="tickearB.call(this)" /> <input
+					type="button" value="9" onclick="tickearB.call(this)" /> <input
+					type="button" value="C" onclick="tickearB.call(this)" /><input
+					type="button" value="0" onclick="tickearB.call(this)" /><input
+					type="submit" value="T" onclick="tickearB.call(this)" />
 			</div>
 		</form>
 	</section>

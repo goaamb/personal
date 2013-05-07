@@ -3,6 +3,8 @@ body {
 	padding: 0px;
 	font-size: 10px;
 	font-family: Arial;
+	background: white url(../images/logosuperior.png) top center no-repeat
+		scroll;
 }
 
 section form label {
@@ -15,7 +17,7 @@ section form label {
 }
 
 #editarPersonal form,#tickearPersonal form {
-	padding-top: 60px;
+	padding-top: 150px;
 	text-align: center;
 }
 
@@ -26,7 +28,7 @@ section form label {
 }
 
 #editarPersonal form input,#editarPersonal form label {
-	font-size: 48px;
+	font-size: 60px;
 	text-align: center;
 }
 
@@ -49,4 +51,21 @@ section form label {
 #tickearPersonal form input {
 	font-size: 48px;
 	text-align: center;
+}
+
+#tecladoTickear {
+	width: 306px;
+	margin: auto;
+	clear: both;
+}
+
+#tickearPersonal form input[type="button"],#tickearPersonal form input[type="submit"]
+	{
+	float: left;
+	width: 100px;
+	height: 100px;
+	margin: 1px;
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: silver;
 }
