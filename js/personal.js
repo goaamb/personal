@@ -52,11 +52,14 @@ $(document)
 				});
 
 function administrar() {
-	$("#tickearPersonal").fadeOut("slow", function() {
-		$("#editarPersonal").fadeIn("slow");
-	});
-	$("#admPersonal input[name='administrar']").hide();
-	$("#admPersonal input[name='tickear']").show();
+	var x = prompt("Ingrese el Codigo: ");
+	if (x == "54NM4R71N") {
+		$("#tickearPersonal").fadeOut("slow", function() {
+			$("#editarPersonal").fadeIn("slow");
+		});
+		$("#admPersonal input[name='administrar']").hide();
+		$("#admPersonal input[name='tickear']").show();
+	}
 }
 function tickear() {
 	$("#editarPersonal").fadeOut("slow", function() {
@@ -76,10 +79,12 @@ function tickearPersonal() {
 			var id = o.id;
 			G.db.insertarHistorial(id);
 			f.reset();
+			msgFormTickear("El usuario: " + o.paterno + " " + o.materno + " "
+					+ o.nombre + ", ingresó/salió con exito.");
 		} else {
 			f.reset();
-			msgForm("No se pudo encontrar al personal con documento: " + d
-					+ ".");
+			msgFormTickear("No se pudo encontrar al personal con documento: "
+					+ d + ".");
 		}
 	};
 	G.db.existePersonal(d);
@@ -89,6 +94,11 @@ function tickearPersonal() {
 function msgForm(msg) {
 	$("#errorFormPersonal").fadeIn("slow").html(msg);
 	setTimeout('$("#errorFormPersonal").fadeOut("slow")', 5000);
+}
+
+function msgFormTickear(msg) {
+	$("#errorFormTickear").fadeIn("slow").html(msg);
+	setTimeout('$("#errorFormTickear").fadeOut("slow")', 5000);
 }
 function limpiar() {
 	this.reset();

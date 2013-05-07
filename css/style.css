@@ -14,8 +14,39 @@ section form label {
 	display: none;
 }
 
+#editarPersonal form,#tickearPersonal form {
+	padding-top: 60px;
+	text-align: center;
+}
+
+#editarPersonal form label span {
+	width: 7em;
+	display: inline-block;
+	text-align: right;
+}
+
+#editarPersonal form input,#editarPersonal form label {
+	font-size: 48px;
+	text-align: center;
+}
+
 #admPersonal {
 	position: absolute;
 	right: 0px;
 	bottom: 0px;
+}
+
+#admPersonal input {
+	font-size: 36px;
+}
+
+#errorFormTickear,#errorFormPersonal {
+	display: none;
+	font-size: 42px;
+	color: red;
+}
+
+#tickearPersonal form input {
+	font-size: 48px;
+	text-align: center;
 }

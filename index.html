@@ -15,12 +15,12 @@
 	<section id="editarPersonal">
 		<form onsubmit="return procesarPersonal.call(this);" method="post">
 			<div id="errorFormPersonal"></div>
-			<input name="id" type="hidden" /> <label>Documento *: <input
-				name="documento" type="text" /></label> <label>Paterno *: <input
-				name="paterno" type="text" />
-			</label> <label>Materno: <input name="materno" type="text" /></label> <label>Nombre
-				*: <input name="nombre" type="text" />
-			</label>
+			<input name="id" type="hidden" /> <label><span>Documento
+					*:</span> <input name="documento" type="number"
+				onkeypress="return G.valid.int.call(this,event)" /></label> <label><span>Paterno
+					*:</span> <input name="paterno" type="text" /> </label> <label><span>Materno:</span>
+				<input name="materno" type="text" /></label> <label><span>Nombre
+					*:</span> <input name="nombre" type="text" /> </label>
 			<div>
 				<input type="submit" value="Guardar" name="guardar" /> <input
 					type="button" value="limpiar" onclick="limpiar.call(this.form)" /><input
@@ -31,8 +31,10 @@
 	</section>
 	<section id="tickearPersonal">
 		<form onsubmit="return tickearPersonal.call(this);" method="post">
+			<div id="errorFormTickear"></div>
 			<div id="hora"></div>
-			<label><input name="documento" /></label>
+			<label><input name="documento" type="number"
+				onkeypress="return G.valid.int.call(this,event)" /></label>
 			<div>
 				<input type="submit" value="Tickear" />
 			</div>
