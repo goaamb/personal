@@ -71,15 +71,25 @@ function tickear() {
 }
 
 function tickearB() {
-	var v = $(this).val();
-	var f = this.form;
-	if (f && v && v.length == 1) {
+	var v = "" + $(this).data("value");
+	var f = $(this).parents("form");
+	if (f && f.length > 0 && v && v.length == 1) {
+		f = f[0];
 		if (v !== "C") {
 			var vv = $(f.documento).val();
 			$(f.documento).val(vv + v);
 		} else {
 			$(f.documento).val("");
 		}
+		$(this).css({
+			"backgroundColor" : "silver"
+		}).animate({
+			"backgroundColor" : "#FFFFFF"
+		}, 100, function() {
+			$(this).animate({
+				"backgroundColor" : "silver"
+			}, 100);
+		});
 	}
 }
 

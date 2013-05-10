@@ -32,6 +32,15 @@ section form label {
 	text-align: center;
 }
 
+#editarPersonal form input {
+	width: 306px;
+}
+
+#editarPersonal form input[type="button"],#editarPersonal form input[type="submit"]
+	{
+	font-size: 36px;
+}
+
 #admPersonal {
 	position: absolute;
 	right: 0px;
@@ -54,12 +63,12 @@ section form label {
 }
 
 #tecladoTickear {
-	width: 306px;
+	width: 312px;
 	margin: auto;
 	clear: both;
 }
 
-#tickearPersonal form input[type="button"],#tickearPersonal form input[type="submit"]
+#tickearPersonal form input[type="button"],#tickearPersonal form input[type="submit"],#tickearPersonal form #tecladoTickear div
 	{
 	float: left;
 	width: 100px;
@@ -68,4 +77,6 @@ section form label {
 	border: 1px solid black;
 	border-radius: 10px;
 	background-color: silver;
+	font-size: 36px;
+	line-height: 100px;
 }
