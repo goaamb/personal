@@ -12,6 +12,17 @@
 	href="css/jquery-ui-1.10.2.min.css" />
 </head>
 <body>
+	<section id="reportePersonal">
+		<form action="reporte.html" method="get">
+			<div id="errorFormReporte"></div>
+			<label><span>Fecha Inicial *:</span> <input
+				name="fechaInicial" type="date" /></label> <label><span>Fecha
+					Final *:</span> <input name="fechaFinal" type="date" /> </label>
+			<div>
+				<input type="submit" value="Reporte" />
+			</div>
+		</form>
+	</section>
 	<section id="editarPersonal">
 		<form onsubmit="return procesarPersonal.call(this);" method="post">
 			<div id="errorFormPersonal"></div>
@@ -25,8 +36,7 @@
 				<input type="submit" value="Guardar" name="guardar" /> <input
 					type="button" value="limpiar" onclick="limpiar.call(this.form)" /><input
 					type="button" value="buscar"
-					onclick="buscarPersonal.call(this.form)" /><input type="button"
-					value="reporte" onclick="reportePersonal.call(this.form)" />
+					onclick="buscarPersonal.call(this.form)" />
 			</div>
 		</form>
 	</section>
@@ -56,7 +66,8 @@
 	<section id="admPersonal">
 		<input type="button" value="Administrar" name="administrar"
 			onclick="administrar()" /> <input type="button" value="Tickear"
-			name="tickear" onclick="tickear()" />
+			name="tickear" onclick="tickear()" /> <input type="button"
+			value="Reporte" onclick="reportePersonal.call(this.form)" />
 	</section>
 </body>
 </html>

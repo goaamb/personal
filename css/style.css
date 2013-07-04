@@ -11,32 +11,33 @@ section form label {
 	display: block;
 }
 
-#editarPersonal,#editarPersonal input[name="modificar"],#admPersonal input[name="tickear"],#errorFormPersonal
+#editarPersonal,#editarPersonal input[name="modificar"],#admPersonal input[name="tickear"],#errorFormPersonal,#reportePersonal
 	{
 	display: none;
 }
 
-#editarPersonal form,#tickearPersonal form {
+#editarPersonal form,#tickearPersonal form,#reportePersonal form {
 	padding-top: 150px;
 	text-align: center;
 }
 
-#editarPersonal form label span {
+#editarPersonal form label span,#reportePersonal form label span {
 	width: 7em;
 	display: inline-block;
 	text-align: right;
 }
 
-#editarPersonal form input,#editarPersonal form label {
+#editarPersonal form input,#editarPersonal form label,#reportePersonal form input,#reportePersonal form label
+	{
 	font-size: 60px;
 	text-align: center;
 }
 
-#editarPersonal form input {
-	width: 306px;
+#editarPersonal form input,#reportePersonal form input {
+	width: 506px;
 }
 
-#editarPersonal form input[type="button"],#editarPersonal form input[type="submit"]
+#editarPersonal form input[type="button"],#editarPersonal form input[type="submit"],#reportePersonal form input[type="button"],#reportePersonal form input[type="submit"]
 	{
 	font-size: 36px;
 }

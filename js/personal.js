@@ -33,8 +33,7 @@ G.db = {
 	db.transaction(function(tx) {
 	    fi = fi + " 00:00:00";
 	    ff = ff + " 23:59:59";
-	    tx.executeSql("select p.paterno||' '||p.materno||' '||p.nombre as nombre, p.documento as documento,h.fecha as fecha from historial h inner join personal p on h.personal=p.id where h.fecha between ? and ?", [ fi, ff ], function(
-		    tx, results) {
+	    tx.executeSql("select p.paterno||' '||p.materno||' '||p.nombre as nombre, p.documento as documento,h.fecha as fecha from historial h inner join personal p on h.personal=p.id where h.fecha between ? and ?", [ fi, ff ], function(tx, results) {
 		if (existeFuncion && existeFuncion.call)
 		    existeFuncion.call(tx, results);
 	    });
@@ -53,12 +52,18 @@ function administrar() {
 	$("#tickearPersonal").fadeOut("slow", function() {
 	    $("#editarPersonal").fadeIn("slow");
 	});
+	$("#reportePersonal").fadeOut("slow", function() {
+	    $("#editarPersonal").fadeIn("slow");
+	});
 	$("#admPersonal input[name='administrar']").hide();
 	$("#admPersonal input[name='tickear']").show();
     }
 }
 function tickear() {
     $("#editarPersonal").fadeOut("slow", function() {
+	$("#tickearPersonal").fadeIn("slow");
+    });
+    $("#reportePersonal").fadeOut("slow", function() {
 	$("#tickearPersonal").fadeIn("slow");
     });
 
@@ -81,10 +86,10 @@ function tickearB() {
 	    "backgroundColor" : "silver"
 	}).animate({
 	    "backgroundColor" : "#FFFFFF"
-	}, 100, function() {
+	}, 50, function() {
 	    $(this).animate({
 		"backgroundColor" : "silver"
-	    }, 100);
+	    }, 50);
 	});
     }
 }
@@ -179,25 +184,10 @@ function buscarPersonal() {
 }
 
 function reportePersonal() {
-    var fi = prompt("Fecha Inicial formato: YYYY-MM-DD");
-    var ff = prompt("Fecha Final formato: YYYY-MM-DD");
-    if (fi && ff) {
-	existeFuncion = function(r) {
-	    if (r && r.rows && r.rows.length > 0) {
-		var t = "<!DOCTYPE HTML><html><head><meta charset='utf-8'><title></title></head><body><table border='1' cellpadding='5' cellspacing='0'><thead><th>Nombre</th><th>Documento</th><th>Fecha</th></thead><tbody>";
-		for ( var i = 0; i < r.rows.length; i++) {
-		    var o = r.rows.item(0);
-		    t += "<tr><td>" + o.nombre + "</td><td>" + o.documento + "</td><td>" + o.fecha + "</td></tr>";
-		}
-		t += "</tbody></table></body></html>";
-		var mW = window.open('about:blank', 'ventanaReporte');
-		mW.document.write(t);
-		mW.focus();
-	    } else {
-		f.reset();
-		msgFormTickear("No existe reporte.");
-	    }
-	};
-	G.db.reportePersonal(fi, ff);
-    }
+    $("#editarPersonal").fadeOut("slow", function() {
+	$("#reportePersonal").fadeIn("slow");
+    });
+    $("#tickearPersonal").fadeOut("slow", function() {
+	$("#reportePersonal").fadeIn("slow");
+    });
 }
