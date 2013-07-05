@@ -88,10 +88,10 @@ function tickearB() {
 	    "backgroundColor" : "silver"
 	}).animate({
 	    "backgroundColor" : "#FFFFFF"
-	}, 50, function() {
+	}, 200, function() {
 	    $(this).animate({
 		"backgroundColor" : "silver"
-	    }, 50);
+	    }, 200);
 	});
 
     }
