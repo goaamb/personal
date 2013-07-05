@@ -83,11 +83,17 @@ function tickearB() {
 	} else {
 	    $(f.documento).val("");
 	}
-	/*
-	 * $(this).css({ "backgroundColor" : "silver" }).animate({
-	 * "backgroundColor" : "#FFFFFF" }, 50, function() { $(this).animate({
-	 * "backgroundColor" : "silver" }, 50); });
-	 */
+
+	$(this).css({
+	    "backgroundColor" : "silver"
+	}).animate({
+	    "backgroundColor" : "#FFFFFF"
+	}, 50, function() {
+	    $(this).animate({
+		"backgroundColor" : "silver"
+	    }, 50);
+	});
+
     }
 }
 
