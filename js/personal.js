@@ -33,7 +33,8 @@ G.db = {
 	db.transaction(function(tx) {
 	    fi = fi + " 00:00:00";
 	    ff = ff + " 23:59:59";
-	    tx.executeSql("select p.paterno||' '||p.materno||' '||p.nombre as nombre, p.documento as documento,h.fecha as fecha from historial h inner join personal p on h.personal=p.id where h.fecha between ? and ?", [ fi, ff ], function(tx, results) {
+	    tx.executeSql("select p.paterno||' '||p.materno||' '||p.nombre as nombre, p.documento as documento,h.fecha as fecha from historial h inner join personal p on h.personal=p.id where h.fecha between ? and ?", [ fi, ff ], function(
+		    tx, results) {
 		if (existeFuncion && existeFuncion.call)
 		    existeFuncion.call(tx, results);
 	    });
@@ -82,15 +83,11 @@ function tickearB() {
 	} else {
 	    $(f.documento).val("");
 	}
-	$(this).css({
-	    "backgroundColor" : "silver"
-	}).animate({
-	    "backgroundColor" : "#FFFFFF"
-	}, 50, function() {
-	    $(this).animate({
-		"backgroundColor" : "silver"
-	    }, 50);
-	});
+	/*
+	 * $(this).css({ "backgroundColor" : "silver" }).animate({
+	 * "backgroundColor" : "#FFFFFF" }, 50, function() { $(this).animate({
+	 * "backgroundColor" : "silver" }, 50); });
+	 */
     }
 }
 
