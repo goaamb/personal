@@ -5,6 +5,7 @@
 <title>:::PANCHITA - Personal:::</title>
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.ui.touch-punch.js"></script>
 <script type="text/javascript" src="js/goaamb/G.js"></script>
 <script type="text/javascript" src="js/personal.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -19,7 +20,8 @@
 				name="fechaInicial" type="date" /></label> <label><span>Fecha
 					Final *:</span> <input name="fechaFinal" type="date" /> </label>
 			<div>
-				<input type="submit" value="Reporte" />
+				<input type="submit" value="Reporte" /> <input type="button"
+					value="Subir Datos" onclick="subirReporte.call(this);" />
 			</div>
 		</form>
 	</section>
@@ -48,21 +50,19 @@
 				readonly="readonly" /></label>
 
 			<div id="tecladoTickear">
-				<input data-value="1" onclick="tickearB.call(this)" type="button"
-					value="1" /> <input data-value="2" onclick="tickearB.call(this)"
-					type="button" value="2" /> <input data-value="3"
-					onclick="tickearB.call(this)" type="button" value="3" /> <input
-					data-value="4" onclick="tickearB.call(this)" type="button"
-					value="4" /> <input data-value="5" onclick="tickearB.call(this)"
-					type="button" value="5" /> <input data-value="6"
-					onclick="tickearB.call(this)" type="button" value="6" /> <input
-					data-value="7" onclick="tickearB.call(this)" type="button"
-					value="7" /> <input data-value="8" onclick="tickearB.call(this)"
-					type="button" value="8" /> <input data-value="9"
-					onclick="tickearB.call(this)" type="button" value="9" /> <input
-					data-value="C" onclick="tickearB.call(this)" type="button"
-					value="C" /> <input data-value="0" onclick="tickearB.call(this)"
-					type="button" value="0" /> <input type="submit" value="T" />
+				<a data-value="1" href="#" onclick="return tickearB.call(this)">1</a>
+				<a data-value="2" href="#" onclick="return tickearB.call(this)">2</a>
+				<a data-value="3" href="#" onclick="return tickearB.call(this)">3</a>
+				<a data-value="4" href="#" onclick="return tickearB.call(this)">4</a>
+				<a data-value="5" href="#" onclick="return tickearB.call(this)">5</a>
+				<a data-value="6" href="#" onclick="return tickearB.call(this)">6</a>
+				<a data-value="7" href="#" onclick="return tickearB.call(this)">7</a>
+				<a data-value="8" href="#" onclick="return tickearB.call(this)">8</a>
+				<a data-value="9" href="#" onclick="return tickearB.call(this)">9</a>
+				<a data-value="C" href="#" onclick="return tickearB.call(this)">C</a>
+				<a data-value="0" href="#" onclick="return tickearB.call(this)">0</a>
+				<a data-value="T" href="#"
+					onclick="$('#tickearPersonal form').submit();return false;">T</a>
 			</div>
 		</form>
 	</section>

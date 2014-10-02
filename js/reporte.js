@@ -38,24 +38,26 @@ function reportePersonal() {
     fi = ffa[0] == "fechaInicial" ? ffa[1] : fi;
     ff = fia[0] == "fechaFinal" ? fia[1] : ff;
     if (fi && ff) {
-	existeFuncion = function(r) {
-	    var t = "";
-	    if (r && r.rows && r.rows.length > 0) {
-		t = "<table border='1' cellpadding='5' cellspacing='0'><thead><th>Nombre</th><th>Documento</th><th>Fecha</th></thead><tbody>";
-		for ( var i = 0; i < r.rows.length; i++) {
-		    var o = r.rows.item(i);
-		    t += "<tr><td>" + o.nombre + "</td><td>" + o.documento + "</td><td>" + o.fecha + "</td></tr>";
-		}
-		t += "</tbody></table>";
+		existeFuncion = function(r) {
+			var t = "";
+			if (r && r.rows && r.rows.length > 0) {
+				t = "<table border='1' cellpadding='5' cellspacing='0'><thead><th>Nombre</th><th>Documento</th><th>Fecha</th></thead><tbody>";
+				for ( var i = 0; i < r.rows.length; i++) {
+					var o = r.rows.item(i);
+					t += "<tr><td>" + o.nombre + "</td><td>" + o.documento
+							+ "</td><td>" + o.fecha + "</td></tr>";
+				}
+				t += "</tbody></table>";
 
-	    } else {
-		t = "No existe reporte.";
-	    }
-	    $("body").html(t);
-	};
-	G.db.reportePersonal(fi, ff);
+			} else {
+				t = "No existe reporte.";
+			}
+			$("body").html(t);
+		};
+		G.db.reportePersonal(fi, ff);
     }
 }
+
 $(document).ready(function() {
     reportePersonal()
 });
