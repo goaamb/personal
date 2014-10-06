@@ -7,14 +7,18 @@ G.db = {
 	});
     },
     reportePersonal : function(fi, ff) {
-	db.transaction(function(tx) {
-	    fi = fi + " 00:00:00";
-	    ff = ff + " 23:59:59";
-	    tx.executeSql("select p.paterno||' '||p.materno||' '||p.nombre as nombre, p.documento as documento,h.fecha as fecha from historial h inner join personal p on h.personal=p.id where h.fecha between ? and ?", [ fi, ff ], function(tx, results) {
-		if (existeFuncion && existeFuncion.call)
-		    existeFuncion.call(tx, results);
-	    });
-	});
+	db
+		.transaction(function(tx) {
+		    fi = fi + " 00:00:00";
+		    ff = ff + " 23:59:59";
+		    tx
+			    .executeSql(
+				    "select p.paterno||' '||p.materno||' '||p.nombre as nombre, p.documento as documento,h.fecha as fecha from historial h inner join personal p on h.personal=p.id where h.fecha between ? and ?",
+				    [ fi, ff ], function(tx, results) {
+					if (existeFuncion && existeFuncion.call)
+					    existeFuncion.call(tx, results);
+				    });
+		});
     }
 };
 
@@ -38,23 +42,22 @@ function reportePersonal() {
     fi = ffa[0] == "fechaInicial" ? ffa[1] : fi;
     ff = fia[0] == "fechaFinal" ? fia[1] : ff;
     if (fi && ff) {
-		existeFuncion = function(r) {
-			var t = "";
-			if (r && r.rows && r.rows.length > 0) {
-				t = "<table border='1' cellpadding='5' cellspacing='0'><thead><th>Nombre</th><th>Documento</th><th>Fecha</th></thead><tbody>";
-				for ( var i = 0; i < r.rows.length; i++) {
-					var o = r.rows.item(i);
-					t += "<tr><td>" + o.nombre + "</td><td>" + o.documento
-							+ "</td><td>" + o.fecha + "</td></tr>";
-				}
-				t += "</tbody></table>";
+	existeFuncion = function(r) {
+	    var t = "";
+	    if (r && r.rows && r.rows.length > 0) {
+		t = "<table border='1' cellpadding='5' cellspacing='0'><thead><th>Nombre</th><th>Documento</th><th>Fecha</th></thead><tbody>";
+		for ( var i = 0; i < r.rows.length; i++) {
+		    var o = r.rows.item(i);
+		    t += "<tr><td>" + o.nombre + "</td><td>" + o.documento + "</td><td>" + o.fecha + "</td></tr>";
+		}
+		t += "</tbody></table>";
 
-			} else {
-				t = "No existe reporte.";
-			}
-			$("body").html(t);
-		};
-		G.db.reportePersonal(fi, ff);
+	    } else {
+		t = "No existe reporte.";
+	    }
+	    $("body").html(t);
+	};
+	G.db.reportePersonal(fi, ff);
     }
 }
 

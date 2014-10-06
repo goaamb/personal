@@ -1,84 +1,21 @@
 body {
-	margin: 0px;
-	padding: 0px;
-	font-size: 10px;
-	font-family: Arial;
-	background: white url(../images/logosuperior.png) top center no-repeat
-		scroll;
-}
-
-section form label {
-	display: block;
-}
-
-#editarPersonal,#editarPersonal input[name="modificar"],#admPersonal input[name="tickear"],#errorFormPersonal,#reportePersonal
-	{
-	display: none;
-}
-
-#editarPersonal form,#tickearPersonal form,#reportePersonal form {
-	padding-top: 150px;
-	text-align: center;
-}
-
-#editarPersonal form label span,#reportePersonal form label span {
-	width: 7em;
-	display: inline-block;
-	text-align: right;
-}
-
-#editarPersonal form input,#editarPersonal form label,#reportePersonal form input,#reportePersonal form label
-	{
-	font-size: 60px;
-	text-align: center;
-}
-
-#editarPersonal form input,#reportePersonal form input {
-	width: 506px;
-}
-
-#editarPersonal form input[type="button"],#editarPersonal form input[type="submit"],#reportePersonal form input[type="button"],#reportePersonal form input[type="submit"]
-	{
-	font-size: 36px;
-}
-
-#admPersonal {
 	position: absolute;
-	right: 0px;
-	bottom: 0px;
+	width: 100%;
+	height: 100%;
 }
 
-#admPersonal input {
-	font-size: 60px;
-}
-
-#errorFormTickear,#errorFormPersonal {
-	display: none;
-	font-size: 42px;
-	color: red;
-}
-
-#tickearPersonal form input {
-	font-size: 60px;
+#tickearPersonal form input[name='documento'] {
 	text-align: center;
+	font-weight: bold;
+	font-size: 2em;
+	height: 2em;
+	line-height: 2em;
 }
 
-#tecladoTickear {
-	width: 462px;
-	margin: auto;
-	clear: both;
+#tecladoTickear.ui-grid-b {
+	padding: 0 2em;
 }
 
-#tecladoTickear a {
-	float: left;
-	width: 150px;
-	height: 150px;
-	margin: 1px;
-	border: 1px solid black;
-	border-radius: 10px;
-	background-color: silver;
-	font-size: 60px;
-	line-height: 150px;
-	text-decoration: none;
-	color: black;
+#tecladoTickear.ui-grid-b a {
+	padding: 1.5em 0;
 }

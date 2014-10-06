@@ -1,76 +1,135 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
 <title>:::PANCHITA - Personal:::</title>
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.10.2.min.js"></script>
-<script type="text/javascript" src="js/jquery.ui.touch-punch.js"></script>
+<script type="text/javascript" src="js/lib/jquery.js"></script>
+<script type="text/javascript" src="js/lib/jquery.mobile.js"></script>
 <script type="text/javascript" src="js/goaamb/G.js"></script>
 <script type="text/javascript" src="js/personal.js"></script>
-<link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css"
-	href="css/jquery-ui-1.10.2.min.css" />
+	href="css/jquery.mobile.structure.css" />
+<link rel="stylesheet" type="text/css"
+	href="css/jquery.mobile.theme.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
-	<section id="reportePersonal">
-		<form action="reporte.html" method="get">
-			<div id="errorFormReporte"></div>
-			<label><span>Fecha Inicial *:</span> <input
-				name="fechaInicial" type="date" /></label> <label><span>Fecha
-					Final *:</span> <input name="fechaFinal" type="date" /> </label>
-			<div>
-				<input type="submit" value="Reporte" /> <input type="button"
-					value="Subir Datos" onclick="subirReporte.call(this);" />
-			</div>
-		</form>
-	</section>
-	<section id="editarPersonal">
-		<form onsubmit="return procesarPersonal.call(this);" method="post">
-			<div id="errorFormPersonal"></div>
-			<input name="id" type="hidden" /> <label><span>Documento
-					*:</span> <input name="documento" type="number"
-				onkeypress="return G.valid.int.call(this,event)" /></label> <label><span>Paterno
-					*:</span> <input name="paterno" type="text" /> </label> <label><span>Materno:</span>
-				<input name="materno" type="text" /></label> <label><span>Nombre
-					*:</span> <input name="nombre" type="text" /> </label>
-			<div>
-				<input type="submit" value="Guardar" name="guardar" /> <input
-					type="button" value="limpiar" onclick="limpiar.call(this.form)" /><input
-					type="button" value="buscar"
-					onclick="buscarPersonal.call(this.form)" />
-			</div>
-		</form>
-	</section>
-	<section id="tickearPersonal">
-		<form onsubmit="return tickearPersonal.call(this);" method="post">
-			<div id="errorFormTickear"></div>
-			<div id="hora"></div>
-			<label><input name="documento" type="text"
-				readonly="readonly" /></label>
+	<section data-role="page" id="tickearPersonal" data-theme="b">
+		<section data-role="header" data-position="fixed">
+			<h1>Ingrese su CI</h1>
+		</section>
+		<section data-role="content">
+			<form>
+				<div id="errorFormTickear"></div>
+				<div id="hora"></div>
+				<label><input name="documento" type="text"
+					placeholder="Documento de Identidad" readonly="readonly" /></label>
 
-			<div id="tecladoTickear">
-				<a data-value="1" href="#" onclick="return tickearB.call(this)">1</a>
-				<a data-value="2" href="#" onclick="return tickearB.call(this)">2</a>
-				<a data-value="3" href="#" onclick="return tickearB.call(this)">3</a>
-				<a data-value="4" href="#" onclick="return tickearB.call(this)">4</a>
-				<a data-value="5" href="#" onclick="return tickearB.call(this)">5</a>
-				<a data-value="6" href="#" onclick="return tickearB.call(this)">6</a>
-				<a data-value="7" href="#" onclick="return tickearB.call(this)">7</a>
-				<a data-value="8" href="#" onclick="return tickearB.call(this)">8</a>
-				<a data-value="9" href="#" onclick="return tickearB.call(this)">9</a>
-				<a data-value="C" href="#" onclick="return tickearB.call(this)">C</a>
-				<a data-value="0" href="#" onclick="return tickearB.call(this)">0</a>
-				<a data-value="T" href="#"
-					onclick="$('#tickearPersonal form').submit();return false;">T</a>
+				<div id="tecladoTickear" class="ui-grid-b">
+					<a data-value="1" href="#" data-role="button" class="ui-block-a">1</a>
+					<a data-value="2" href="#" data-role="button" class="ui-block-b">2</a>
+					<a data-value="3" href="#" data-role="button" class="ui-block-c">3</a>
+					<a data-value="4" href="#" data-role="button" class="ui-block-a">4</a>
+					<a data-value="5" href="#" data-role="button" class="ui-block-b">5</a>
+					<a data-value="6" href="#" data-role="button" class="ui-block-c">6</a>
+					<a data-value="7" href="#" data-role="button" class="ui-block-a">7</a>
+					<a data-value="8" href="#" data-role="button" class="ui-block-b">8</a>
+					<a data-value="9" href="#" data-role="button" class="ui-block-c">9</a>
+					<a data-value="C" href="#" data-role="button" class="ui-block-a">C</a>
+					<a data-value="0" href="#" data-role="button" class="ui-block-b">0</a>
+					<a data-value="T" href="#" data-role="button" class="ui-block-c">T</a>
+				</div>
+			</form>
+		</section>
+		<section data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#tickearPersonal"
+						class="ui-btn-active ui-state-persist">Tickear</a></li>
+					<li><a href="#editarPersonal">Administar</a></li>
+					<li><a href="#reportePersonal">Reportes</a></li>
+				</ul>
 			</div>
-		</form>
-	</section>
-	<section id="admPersonal">
+			<!-- 
 		<input type="button" value="Administrar" name="administrar"
 			onclick="administrar()" /> <input type="button" value="Tickear"
 			name="tickear" onclick="tickear()" /> <input type="button"
-			value="Reporte" onclick="reportePersonal.call(this.form)" />
+			value="Reporte" onclick="reportePersonal.call(this.form)" />/navbar -->
+		</section>
 	</section>
+	<section data-role="page" id="editarPersonal" data-theme="b">
+		<section data-role="header" data-position="fixed">
+			<h1>Administración</h1>
+		</section>
+		<section data-role="content">
+			<form onsubmit="return procesarPersonal.call(this);" method="post">
+				<div id="errorFormPersonal"></div>
+				<input name="id" type="hidden" /> <label><input
+					name="documento" type="number"
+					onkeypress="return G.valid.int.call(this,event)"
+					placeholder="Documento *" /></label> <label><input name="paterno"
+					type="text" placeholder="Paterno *" /> </label> <label> <input
+					name="materno" type="text" placeholder="Materno" /></label> <label><input
+					name="nombre" type="text" placeholder="Nombre *" /> </label>
+				<div>
+					<input type="submit" value="Guardar" name="guardar" /> <input
+						type="button" value="limpiar" onclick="limpiar.call(this.form)" /><input
+						type="button" value="buscar"
+						onclick="buscarPersonal.call(this.form)" />
+				</div>
+			</form>
+		</section>
+		<section data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#tickearPersonal">Tickear</a></li>
+					<li><a href="#editarPersonal"
+						class="ui-btn-active ui-state-persist">Administar</a></li>
+					<li><a href="#reportePersonal">Reportes</a></li>
+				</ul>
+			</div>
+			<!-- 
+		<input type="button" value="Administrar" name="administrar"
+			onclick="administrar()" /> <input type="button" value="Tickear"
+			name="tickear" onclick="tickear()" /> <input type="button"
+			value="Reporte" onclick="reportePersonal.call(this.form)" />/navbar -->
+		</section>
+	</section>
+	<section data-role="page" id="reportePersonal" data-theme="b">
+		<section data-role="header" data-position="fixed">
+			<h1>Reporte</h1>
+		</section>
+		<section data-role="content">
+			<form action="reporte.html" method="get">
+				<div id="errorFormReporte"></div>
+				<label><span>Fecha Inicial *:</span> <input
+					name="fechaInicial" type="date" /></label> <label><span>Fecha
+						Final *:</span> <input name="fechaFinal" type="date" /> </label>
+				<div>
+					<input type="submit" value="Reporte" /> <input type="button"
+						value="Subir Datos" onclick="subirReporte.call(this);" />
+				</div>
+			</form>
+		</section>
+		<section data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#tickearPersonal">Tickear</a></li>
+					<li><a href="#editarPersonal">Administar</a></li>
+					<li><a href="#reportePersonal"
+						class="ui-btn-active ui-state-persist">Reportes</a></li>
+				</ul>
+			</div>
+			<!-- 
+		<input type="button" value="Administrar" name="administrar"
+			onclick="administrar()" /> <input type="button" value="Tickear"
+			name="tickear" onclick="tickear()" /> <input type="button"
+			value="Reporte" onclick="reportePersonal.call(this.form)" />/navbar -->
+		</section>
+	</section>
+	<section id="confirm" data-role="dialog"></section>
+
 </body>
 </html>
